@@ -28,8 +28,7 @@ object RetrofitClient {
             .addNetworkInterceptor(Interceptor { chain: Interceptor.Chain ->
                 val originalRequest: Request = chain.request()
                 val newRequest: Request =
-                    originalRequest.newBuilder() //ganti value header di bawah ini dengan nama kalian
-                        .addHeader("Client-Name", "Kamal Makarim")
+                    originalRequest.newBuilder()
                         .build()
                 chain.proceed(newRequest)
             })

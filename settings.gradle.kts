@@ -23,3 +23,4 @@ rootProject.name = "Testing Dynamic Module"
 include(":app")
 include(":feature_admin")
 include(":feature_user")
+include(":feature_instant")
