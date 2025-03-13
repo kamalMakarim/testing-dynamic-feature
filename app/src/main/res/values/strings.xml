@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Testing Dynamic Feature</string>
+    <string name="title_dynamic_feature">Dynamic Feature</string>
+    <string name="title_dynamicfeature">Dynamic</string>
+    <string name="title_dynamicmodule">Dynamic Module</string>
+    <string name="title_dynamicfeaturepage">Dynamic Feature Page</string>
+    <string name="title_adminhomeactivity">AdminHomeActivity</string>
+</resources>

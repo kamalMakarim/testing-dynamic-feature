@@ -1,0 +1,4 @@
+<resources>
+    <string name="title_activity_admin_home">Admin Home</string>
+    <string name="title_feature_admin">Admin Module</string>
+</resources>
