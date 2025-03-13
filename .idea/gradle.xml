@@ -10,9 +10,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/admin_feature" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/user_feature" />
+            <option value="$PROJECT_DIR$/feature_admin" />
+            <option value="$PROJECT_DIR$/feature_user" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
