@@ -22,7 +22,7 @@ import com.kamal.testingdynamicmodule.request.UtilsApi
 
 
 class LoginActivity : AppCompatActivity(), DynamicDeliveryCallback {
-    private val ADMIN_FEATURE_MODULE = "feature_admin"
+    private val ADMIN_FEATURE_MODULE = "admin_feature"
     private lateinit var loginButton: Button
     private lateinit var registerNow: TextView
     private lateinit var email: EditText
@@ -76,7 +76,7 @@ class LoginActivity : AppCompatActivity(), DynamicDeliveryCallback {
                         if (res != null && res.success) {
                             loggedUser = res.payload as User?
                             if(loggedUser!!.isUserAdmin()){
-                                dynamicModuleDownloadUtil.downloadDynamicModule("feature_admin")
+                                dynamicModuleDownloadUtil.downloadDynamicModule("admin_feature")
                             }
                             downloadDynamicModule()
                             openAdminFeature()
@@ -107,7 +107,7 @@ class LoginActivity : AppCompatActivity(), DynamicDeliveryCallback {
         val intent = Intent()
         intent.setClassName(
             "com.kamal.testingdynamicmodule",
-            "com.kamal.feature_admin.AdminHomeActivity"
+            "com.kamal.admin_feature.AdminHomeActivity"
         )
         startActivity(intent)
     }

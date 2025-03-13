@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestingDynamicModule">
         <activity
-            android:name=".Admin"
+            android:name=".HomeActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.TestingDynamicModule">
