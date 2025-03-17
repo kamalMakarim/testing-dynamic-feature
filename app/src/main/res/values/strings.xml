@@ -8,4 +8,5 @@
     <string name="title_admin_feature">Admin Feature</string>
     <string name="title_feature_user">User Feature</string>
     <string name="title_feature_instant">Module Title</string>
+    <string name="title_feature_admin">Admin Feature</string>
 </resources>

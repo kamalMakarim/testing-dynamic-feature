@@ -12,7 +12,6 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/feature_admin" />
-            <option value="$PROJECT_DIR$/feature_instant" />
             <option value="$PROJECT_DIR$/feature_user" />
           </set>
         </option>

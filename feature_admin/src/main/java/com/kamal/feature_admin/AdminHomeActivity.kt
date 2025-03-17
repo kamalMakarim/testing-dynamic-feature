@@ -1,4 +1,4 @@
-package com.kamal.admin_feature
+package com.kamal.feature_admin
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

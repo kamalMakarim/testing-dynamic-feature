@@ -4,7 +4,7 @@
 
     <dist:module
         dist:instant="false"
-        dist:title="@string/title_admin_feature">
+        dist:title="@string/title_feature_admin">
         <dist:delivery>
             <dist:on-demand />
         </dist:delivery>
@@ -15,7 +15,7 @@
     <application>
         <activity
             android:name=".AdminHomeActivity"
-            android:exported="true"/>
+            android:exported="false" />
     </application>
 
 </manifest>

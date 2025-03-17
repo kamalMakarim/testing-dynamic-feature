@@ -1,4 +1,4 @@
-package com.kamal.admin_feature
+package com.kamal.feature_admin
 
 import org.junit.Test
 

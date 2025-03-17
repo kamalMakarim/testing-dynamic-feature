@@ -37,7 +37,7 @@ android {
     buildFeatures {
         compose = true
     }
-    dynamicFeatures += setOf(":feature_admin", ":feature_user", ":feature_instant")
+    dynamicFeatures += setOf(":feature_user", ":feature_admin")
 }
 
 dependencies {
@@ -47,11 +47,10 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
+    implementation(libs.material)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
