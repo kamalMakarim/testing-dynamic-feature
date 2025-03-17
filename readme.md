@@ -7,6 +7,10 @@ npm install
 npm run start
 ```
 
+Terdapat dua email dan password yang dapat digunakan untuk login, yaitu
+1. (user) kamal.makarim@gmail.com:Password1234
+2. (admin) admin@gmail.com:Password1234
+
 ## How To Make A Dynamic Feature On Android Studio
 
 1. Create a new module
@@ -24,9 +28,8 @@ npm run start
 ## Things To Look Out For
 
 1. Ketika menggunakan dynamic feature, fitur dynamic tidak bisa di import langsung di app, perlu menggunakan reflection
-2. Jika ingin menggunakan dynamic feature on-demand, pastikan aplikasi sudah di upload ke playstore
-3. Jika terdapat asset yang diakses oleh dua atau lebih dynamic feature, disarankan untuk meletakkan asset tersebut di base module untuk menghindari duplikasi asset
-4. Jika ingin mengakses asset dari dynamic feature, gunakan AssetManager untuk mengakses asset tersebut (Belum di uji)
+2. Jika terdapat asset yang diakses oleh dua atau lebih dynamic feature, disarankan untuk meletakkan asset tersebut di base module untuk menghindari duplikasi asset
+3. Jika ingin mengakses asset dari dynamic feature, gunakan AssetManager untuk mengakses asset tersebut
 
 ## Internal Storage Used Comparison
 
@@ -34,3 +37,9 @@ npm run start
 | -------------------- | --------------------- | ------------------------ | ----------------------- | ------------------------ | ------------- |
 | False                | -                     | -                        | -                       | 8.27MB                   | 5.8MB         |
 | True                 | 11.60MB               | 11.61MB                  | 11.61MB                 | 11.62MB                  | 9.9MB         |
+
+## Build Analysis
+### With Dynamic Feature
+![alt text](./md-image/apkAnalysis_dynamicFeature.png)
+### Without Dynamic Feature
+![alt text](./md-image/apkAnalysis_noDynamicFeature.png)
