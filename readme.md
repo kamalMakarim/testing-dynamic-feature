@@ -23,7 +23,7 @@ Terdapat dua email dan password yang dapat digunakan untuk login, yaitu
    ![alt text](./md-image/on-demand-manifest.png)
    ![alt text](./md-image/instant-manifest.png)
 4. Gunakan SplitInstallManager untuk menginstall modul dynamic feature, dapat dilihat di bagian berikut
-   [Contoh Penggunaan SplitInstallManager](https://github.com/kamalMakarim/testing-dynamic-feature/blob/main/app/src/main/java/com/kamal/testingdynamicmodule/dynamic_module/DynamicModuleDownloadUtil.kt)
+   [Contoh Penggunaan SplitInstallManager](https://github.com/kamalMakarim/testing-dynamic-feature/blob/main/TestingDynamicModule/app/src/main/java/com/kamal/testingdynamicmodule/dynamic_module/DynamicModuleDownloadUtil.kt)
 
 ## Things To Look Out For
 
