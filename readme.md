@@ -8,6 +8,7 @@ npm run start
 ```
 
 Terdapat dua email dan password yang dapat digunakan untuk login, yaitu
+
 1. (user) kamal.makarim@gmail.com:Password1234
 2. (admin) admin@gmail.com:Password1234
 
@@ -33,13 +34,17 @@ Terdapat dua email dan password yang dapat digunakan untuk login, yaitu
 
 ## Internal Storage Used Comparison
 
-| With Dynamic Feature | No Feature Downloaded | Admin Feature Downloaded | User Feature Downloaded | Both Features Downloaded | Download Size |
-| -------------------- | --------------------- | ------------------------ | ----------------------- | ------------------------ | ------------- |
-| False                | -                     | -                        | -                       | 8.27MB                   | 5.8MB         |
-| True                 | 11.60MB               | 11.61MB                  | 11.61MB                 | 11.62MB                  | 9.9MB         |
+| With Dynamic Feature | Without Dummy Image | Download Size with dummy image |
+| -------------------- | ------------------- | ------------------------------ |
+| False                | 5.8MB               | 47.1MB                         |
+| True                 | 9.9MB               | 9.9MB                          |
 
 ## Build Analysis
+
 ### With Dynamic Feature
+
 ![alt text](./md-image/apkAnalysis_dynamicFeature.png)
+
 ### Without Dynamic Feature
+
 ![alt text](./md-image/apkAnalysis_noDynamicFeature.png)
