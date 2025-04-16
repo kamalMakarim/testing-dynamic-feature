@@ -36,7 +36,7 @@ Terdapat dua email dan password yang dapat digunakan untuk login, yaitu
 
 | With Dynamic Feature | Without Dummy Image | Download Size with dummy image |
 | -------------------- | ------------------- | ------------------------------ |
-| False                | 5.8MB               | 47.1MB                         |
+| False                | 5.8MB               | 88.4MB                         |
 | True                 | 9.9MB               | 9.9MB                          |
 
 ## Build Analysis
