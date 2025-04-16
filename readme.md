@@ -41,10 +41,18 @@ Terdapat dua email dan password yang dapat digunakan untuk login, yaitu
 
 ## Build Analysis
 
-### With Dynamic Feature
+### With Dynamic Feature Without Dummy Image
 
 ![alt text](./md-image/apkAnalysis_dynamicFeature.png)
 
-### Without Dynamic Feature
+### Without Dynamic Feature Without Dummy Image
 
 ![alt text](./md-image/apkAnalysis_noDynamicFeature.png)
+
+### With Dynamic Feature With Dummy Image
+
+![alt text](./md-image/apkAnalysis_dynamicFeatureWithImage.png)
+
+### Without Dynamic Feature With Dummy Image
+
+![alt text](./md-image/apkAnalysis_noDynamicFeatureWithImage.png)
