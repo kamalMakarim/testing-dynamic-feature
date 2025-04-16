@@ -1,4 +1,4 @@
-package com.kamal.nodynamicfeature
+package com.kamal.user
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
