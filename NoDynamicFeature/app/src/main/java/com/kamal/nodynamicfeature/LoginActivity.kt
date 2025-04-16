@@ -18,6 +18,9 @@ import com.kamal.nodynamicfeature.model.User
 import com.kamal.nodynamicfeature.request.BaseApiService
 import com.kamal.nodynamicfeature.request.UtilsApi
 
+import com.kamal.user.UserHomeActivity
+import com.kamal.admin.AdminHomeActivity
+
 
 class LoginActivity : AppCompatActivity(){
     private lateinit var loginButton: Button

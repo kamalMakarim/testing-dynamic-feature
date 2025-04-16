@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "NoDynamicFeature"
 include(":app")
- 
+include(":user")
+include(":admin")
