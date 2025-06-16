@@ -1,0 +1,3 @@
+com.kamal.feature_user1.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme

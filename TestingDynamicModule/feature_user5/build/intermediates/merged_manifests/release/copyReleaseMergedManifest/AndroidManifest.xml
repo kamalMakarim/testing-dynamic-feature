@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    featureSplit="feature_user5"
+    package="com.kamal.testingdynamicmodule"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="24"
+        android:targetSdkVersion="24" />
+
+    <dist:module
+        dist:instant="false"
+        dist:title="@string/title_feature_user5" >
+        <dist:delivery>
+            <dist:on-demand />
+        </dist:delivery>
+
+        <dist:fusing dist:include="false" />
+    </dist:module>
+
+    <application android:extractNativeLibs="false" >
+        <activity
+            android:name="com.kamal.feature_user5.MainActivity"
+            android:exported="false"
+            android:splitName="feature_user5" />
+    </application>
+
+</manifest>

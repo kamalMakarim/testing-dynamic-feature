@@ -1,0 +1,16 @@
+com.kamal.testingdynamicmodule:id/main = 0x7a030000
+com.kamal.testingdynamicmodule:drawable/telkomsel = 0x7a020001
+com.kamal.testingdynamicmodule:drawable/dummyphoto = 0x7a020000
+com.kamal.testingdynamicmodule:layout/activity_main5 = 0x7a040000
+com.kamal.testingdynamicmodule:color/white = 0x7a01000b
+com.kamal.testingdynamicmodule:color/teal_700 = 0x7a010009
+com.kamal.testingdynamicmodule:color/red = 0x7a010007
+com.kamal.testingdynamicmodule:color/teal_200 = 0x7a010008
+com.kamal.testingdynamicmodule:color/purple_700 = 0x7a010006
+com.kamal.testingdynamicmodule:color/ic_banner_background = 0x7a010002
+com.kamal.testingdynamicmodule:color/telkomsel_background = 0x7a01000a
+com.kamal.testingdynamicmodule:color/purple_200 = 0x7a010004
+com.kamal.testingdynamicmodule:color/ic_launcher_background = 0x7a010003
+com.kamal.testingdynamicmodule:color/purple_500 = 0x7a010005
+com.kamal.testingdynamicmodule:color/gray = 0x7a010001
+com.kamal.testingdynamicmodule:color/black = 0x7a010000

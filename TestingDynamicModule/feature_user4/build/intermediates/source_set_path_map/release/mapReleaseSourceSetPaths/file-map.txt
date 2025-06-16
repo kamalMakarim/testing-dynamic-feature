@@ -1,0 +1,7 @@
+com.kamal.feature_user4-pngs-0 D:\UI\testing-dynamic-feature\TestingDynamicModule\feature_user4\build\generated\res\pngs\release
+com.kamal.feature_user4-resValues-1 D:\UI\testing-dynamic-feature\TestingDynamicModule\feature_user4\build\generated\res\resValues\release
+com.kamal.feature_user4-packageReleaseResources-2 D:\UI\testing-dynamic-feature\TestingDynamicModule\feature_user4\build\intermediates\incremental\release\packageReleaseResources\merged.dir
+com.kamal.feature_user4-packageReleaseResources-3 D:\UI\testing-dynamic-feature\TestingDynamicModule\feature_user4\build\intermediates\incremental\release\packageReleaseResources\stripped.dir
+com.kamal.feature_user4-release-4 D:\UI\testing-dynamic-feature\TestingDynamicModule\feature_user4\build\intermediates\merged_res\release\mergeReleaseResources
+com.kamal.feature_user4-main-5 D:\UI\testing-dynamic-feature\TestingDynamicModule\feature_user4\src\main\res
+com.kamal.feature_user4-release-6 D:\UI\testing-dynamic-feature\TestingDynamicModule\feature_user4\src\release\res
