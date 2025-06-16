@@ -30,29 +30,56 @@ Terdapat dua email dan password yang dapat digunakan untuk login, yaitu
 
 1. Ketika menggunakan dynamic feature, fitur dynamic tidak bisa di import langsung di app, perlu menggunakan reflection
 2. Jika terdapat asset yang diakses oleh dua atau lebih dynamic feature, disarankan untuk meletakkan asset tersebut di base module untuk menghindari duplikasi asset
-3. Jika ingin mengakses asset dari dynamic feature, gunakan AssetManager untuk mengakses asset tersebut
+3. Jika ingin mengakses asset dari dynamic feature, pastikan nama file asset berbeda untuk menghindari konflik
 
-## Internal Storage Used Comparison
+---
 
-| With Dynamic Feature | Without Dummy Image | Download Size with dummy image |
-| -------------------- | ------------------- | ------------------------------ |
-| False                | 5.8MB               | 88.4MB                         |
-| True                 | 9.9MB               | 9.9MB                          |
+## Pembuatan perbandingan ukuran APK
 
-## Build Analysis
+### Dynamic Feature
 
-### With Dynamic Feature Without Dummy Image
+1. Memasukan/menghilangkan dynamic feature dari build universal dengan mengganti android manifest dari dynamic feature
 
-![alt text](./md-image/apkAnalysis_dynamicFeature.png)
+```
+<dist:fusing dist:include="false" />
+```
 
-### Without Dynamic Feature Without Dummy Image
+true untuk memasukan, false untuk menghilangkan
 
-![alt text](./md-image/apkAnalysis_noDynamicFeature.png)
+2. Menggunakan bundletool untuk membuat apks dari aab
 
-### With Dynamic Feature With Dummy Image
+```
+./gradlew bundleRelease
+java -jar bundletool-all-1.18.1.jar build-apks --bundle=app/build/outputs/bundle/release/app-release.aab --output=<file name>.apks --mode=universal
+```
 
-![alt text](./md-image/apkAnalysis_dynamicFeatureWithImage.png)
+### No Dynamic Feature
 
-### Without Dynamic Feature With Dummy Image
+1. memasukan/menghilakan module dengan menghapus module dari build.gradle dari app nya sendiri
 
-![alt text](./md-image/apkAnalysis_noDynamicFeatureWithImage.png)
+```
+    implementation(project(":user1"))
+    implementation(project(":user2"))
+    implementation(project(":user3"))
+    implementation(project(":user4"))
+    implementation(project(":user5"))
+```
+
+2. Menggunakan bundletool untuk membuat apks dari aab
+
+```
+./gradlew bundleRelease
+java -jar bundletool-all-1.18.1.jar build-apks --bundle=app/build/outputs/bundle/release/app-release.aab --output=<file name>.apks --mode=universal
+```
+
+---
+
+## Perbandingan ukuran APK
+
+| Module             | 0 module | 1 module | 1-2 module | 1-3 module | 1-4 module | 1-5 module |
+| ------------------ | -------- | -------- | ---------- | ---------- | ---------- | ---------- |
+| Dynamic Feature    | 7.07 MB  | 41.17 MB | 75.26 MB   | 109.36 MB  | 143.45 MB  | 177.55 MB  |
+| No Dynamic Feature | 5.63 MB  | 39.72 MB | 73.81 MB   | 107.90 MB  | 141.99 MB  | 176.08 MB  |
+| Difference         | 1.44 MB  | 1.45 MB  | 1.45 MB    | 1.46 MB    | 1.46 MB    | 1.47 MB    |
+
+apk yang dihasilkan dapat dilihat di [releases](https://drive.google.com/drive/folders/113oJK7SlN4p1fVnZPW1TXPq6EEAMdrds?usp=sharing)
