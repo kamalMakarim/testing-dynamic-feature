@@ -1,16 +1,14 @@
 ## Explanation about the project
 
-Dalam projek ini terdapat login activity yang menentukan feature yang diperlukan oleh user, jika dia admin maka akan mendownload admin_feature, sementara bila user biasa maka akan mendownload user_feature. untuk menjalankan backend yang digunakan dapat ke direktori /demo-backend lalu menjalankan perintah
+Dalam projek ini bertujuan untuk mengsimulasikan penggunaan dynamic feature. Untuk kasus nya akan ada 5 user yang memiliki dynamic feature nya masing-masing. Username dari masing-masing user adalah:
 
-```
-npm install
-npm run start
-```
+- feature_user1
+- feature_user2
+- feature_user3
+- feature_user4
+- feature_user5
 
-Terdapat dua email dan password yang dapat digunakan untuk login, yaitu
-
-1. (user) kamal.makarim@gmail.com:Password1234
-2. (admin) admin@gmail.com:Password1234
+untuk password nya tidak akan diperiksa. Pada setiap module terdapat juga asset berukuran besar yang bertujuan untuk mengsimulasikan ukuran module yang besar.
 
 ## How To Make A Dynamic Feature On Android Studio
 
