@@ -8,29 +8,32 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import retrofit2.Callback
-import retrofit2.Call
-import retrofit2.Response
 
 import androidx.appcompat.app.AppCompatActivity
 import com.kamal.testingdynamicmodule.dynamic_module.DynamicDeliveryCallback
 import com.kamal.testingdynamicmodule.dynamic_module.DynamicModuleDownloadUtil
-import com.kamal.testingdynamicmodule.model.BaseResponse
-import com.kamal.testingdynamicmodule.model.User
-import com.kamal.testingdynamicmodule.request.BaseApiService
-import com.kamal.testingdynamicmodule.request.UtilsApi
 
 
 class LoginActivity : AppCompatActivity(), DynamicDeliveryCallback {
-    private val ADMIN_FEATURE_MODULE = "feature_admin"
-    private val USER_FEATURE_MODULE = "feature_user"
     private lateinit var loginButton: Button
     private lateinit var registerNow: TextView
     private lateinit var email: EditText
     private lateinit var password: EditText
-    private lateinit var mApiService: BaseApiService
     private lateinit var mContext: Context
     private lateinit var dynamicModuleDownloadUtil: DynamicModuleDownloadUtil
+
+    private val moduleMap = mapOf(
+        "user1" to Pair("feature_user1", "MainActivity1"),
+        "user2" to Pair("feature_user2", "MainActivity2"),
+        "user3" to Pair("feature_user3", "MainActivity3"),
+        "user4" to Pair("feature_user4", "MainActivity4"),
+        "user5" to Pair("feature_user5", "MainActivity5"),
+        "user6" to Pair("feature_user6", "MainActivity6"),
+        "user7" to Pair("feature_user7", "MainActivity7"),
+        "user8" to Pair("feature_user8", "MainActivity8"),
+        "user9" to Pair("feature_user9", "MainActivity9"),
+        "user10" to Pair("feature_user10", "MainActivity10")
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,13 +43,11 @@ class LoginActivity : AppCompatActivity(), DynamicDeliveryCallback {
         this.registerNow = findViewById<TextView>(R.id.create_button)
         this.email = findViewById<EditText>(R.id.login_email)
         this.password = findViewById<EditText>(R.id.login_password)
-        this.mApiService = UtilsApi.apiService
         this.mContext = this
 
         loginButton.setOnClickListener(View.OnClickListener { _: View? ->
             handleLogin()
         })
-
 
         if (supportActionBar != null) {
             supportActionBar!!.hide()
@@ -66,81 +67,38 @@ class LoginActivity : AppCompatActivity(), DynamicDeliveryCallback {
             ).show()
             return
         }
-        mApiService.login(emailS, passwordS)
-            .enqueue(object : Callback<BaseResponse<User>> {
-                override fun onResponse(
-                    call: Call<BaseResponse<User>>,
-                    response: Response<BaseResponse<User>>
-                ) {
-                    if (response.isSuccessful) {
-                        val res = response.body()
-                        if (res != null && res.success) {
-                            loggedUser = res.payload as User?
-                            if(loggedUser!!.isUserAdmin()){
-                                dynamicModuleDownloadUtil.downloadDynamicModule("feature_admin")
-                                downloadDynamicModule()
-                                openAdminFeature()
-                            }
-                            else{
-                                dynamicModuleDownloadUtil.downloadDynamicModule("feature_user")
-                                downloadDynamicModule()
-                                openUserFeature()
-                            }
-                        } else {
-                            Toast.makeText(mContext, res?.message ?: "Login failed", Toast.LENGTH_SHORT).show()
-                        }
-                    } else {
-                        Toast.makeText(mContext, "Error: ${response.code()}", Toast.LENGTH_SHORT).show()
-                    }
-                }
-
-                override fun onFailure(call: Call<BaseResponse<User>>, t: Throwable) {
-                    System.out.println(t.message)
-                    Toast.makeText(mContext, "Problem with the server: ${t.message}", Toast.LENGTH_SHORT).show()
-                }
-            })
-
-    }
-
-    private fun openAdminFeature(){
-        if (dynamicModuleDownloadUtil.isModuleDownloaded(ADMIN_FEATURE_MODULE)) {
-            System.out.println("Module is already downloaded.\n")
-            startAdminHomeActivity()
+        else{
+            openFeature(emailS)
         }
     }
 
-    private fun openUserFeature(){
-        if (dynamicModuleDownloadUtil.isModuleDownloaded(USER_FEATURE_MODULE)) {
+    private fun openFeature(username: String) {
+        val (module, activity) = moduleMap[username] ?: run {
+            Toast.makeText(mContext, "No feature available for this user", Toast.LENGTH_SHORT).show()
+            return
+        }
+        if (dynamicModuleDownloadUtil.isModuleDownloaded(module)) {
             System.out.println("Module is already downloaded.\n")
-            startUserHomeActivity()
+            startFeatureActivity(module)
+        }
+        else{
+            System.out.println("Downloading module $module.\n")
+            dynamicModuleDownloadUtil.downloadDynamicModule(module)
         }
     }
 
-    private fun startAdminHomeActivity() {
+    private fun startFeatureActivity(moduleName: String){
+        val activity = moduleMap[moduleName]?.second ?: run {
+            Toast.makeText(mContext, "No activity available for this user", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         val intent = Intent()
         intent.setClassName(
             "com.kamal.testingdynamicmodule",
-            "com.kamal.feature_admin.AdminHomeActivity"
+            "com.kamal.$moduleName.$activity"
         )
         startActivity(intent)
-    }
-
-    private fun startUserHomeActivity() {
-        val intent = Intent()
-        intent.setClassName(
-            "com.kamal.testingdynamicmodule",
-            "com.kamal.feature_user.UserHomeActivity"
-        )
-        startActivity(intent)
-    }
-
-    private fun downloadDynamicModule() {
-        System.out.println("Call for download.\n")
-        dynamicModuleDownloadUtil.downloadDynamicModule(ADMIN_FEATURE_MODULE)
-    }
-
-    companion object {
-        var loggedUser: User? = null
     }
 
     override fun onDownloadCompleted() {
@@ -151,9 +109,9 @@ class LoginActivity : AppCompatActivity(), DynamicDeliveryCallback {
         System.out.println("Downloading...")
     }
 
-    override fun onInstallSuccess() {
+    override fun onInstallSuccess(moduleName: String) {
         System.out.println( "Module install Success!\n")
-        startAdminHomeActivity()
+        startFeatureActivity(moduleName)
     }
 
     override fun onFailed(errorMessage: String) {

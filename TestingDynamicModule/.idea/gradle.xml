@@ -11,11 +11,18 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/feature_admin" />
-            <option value="$PROJECT_DIR$/feature_user" />
+            <option value="$PROJECT_DIR$/feature_user1" />
+            <option value="$PROJECT_DIR$/feature_user10" />
+            <option value="$PROJECT_DIR$/feature_user2" />
+            <option value="$PROJECT_DIR$/feature_user3" />
+            <option value="$PROJECT_DIR$/feature_user4" />
+            <option value="$PROJECT_DIR$/feature_user5" />
+            <option value="$PROJECT_DIR$/feature_user6" />
+            <option value="$PROJECT_DIR$/feature_user7" />
+            <option value="$PROJECT_DIR$/feature_user8" />
+            <option value="$PROJECT_DIR$/feature_user9" />
           </set>
         </option>
-        <option name="resolveExternalAnnotations" value="false" />
       </GradleProjectSettings>
     </option>
   </component>

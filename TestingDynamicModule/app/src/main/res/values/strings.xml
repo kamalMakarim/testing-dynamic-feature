@@ -9,4 +9,15 @@
     <string name="title_feature_user">User Feature</string>
     <string name="title_feature_instant">Module Title</string>
     <string name="title_feature_admin">Admin Feature</string>
+    <string name="title_feature_user1">user1</string>
+    <string name="title_feature_user2">user2</string>
+    <string name="title_feature_user3">user3</string>
+    <string name="title_feature_user4">user4</string>
+    <string name="title_feature_uesr5">user5</string>
+    <string name="title_feature_user5">user5</string>
+    <string name="title_feature_user6">user6</string>
+    <string name="title_feature_user7">user7</string>
+    <string name="title_feature_user8">user8</string>
+    <string name="title_feature_user9">user9</string>
+    <string name="title_feature_user10">user10</string>
 </resources>

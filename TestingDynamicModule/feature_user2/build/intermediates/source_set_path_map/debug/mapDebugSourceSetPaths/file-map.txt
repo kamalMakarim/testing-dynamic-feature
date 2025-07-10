@@ -1,7 +1,0 @@
-com.kamal.feature_user2-pngs-0 D:\UI\testing-dynamic-feature\TestingDynamicModule\feature_user2\build\generated\res\pngs\debug
-com.kamal.feature_user2-resValues-1 D:\UI\testing-dynamic-feature\TestingDynamicModule\feature_user2\build\generated\res\resValues\debug
-com.kamal.feature_user2-packageDebugResources-2 D:\UI\testing-dynamic-feature\TestingDynamicModule\feature_user2\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.kamal.feature_user2-packageDebugResources-3 D:\UI\testing-dynamic-feature\TestingDynamicModule\feature_user2\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.kamal.feature_user2-debug-4 D:\UI\testing-dynamic-feature\TestingDynamicModule\feature_user2\build\intermediates\merged_res\debug\mergeDebugResources
-com.kamal.feature_user2-debug-5 D:\UI\testing-dynamic-feature\TestingDynamicModule\feature_user2\src\debug\res
-com.kamal.feature_user2-main-6 D:\UI\testing-dynamic-feature\TestingDynamicModule\feature_user2\src\main\res

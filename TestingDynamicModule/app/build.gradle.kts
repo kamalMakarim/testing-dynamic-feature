@@ -37,7 +37,18 @@ android {
     buildFeatures {
         compose = true
     }
-    dynamicFeatures += setOf(":feature_user", ":feature_admin")
+    dynamicFeatures += setOf(
+        ":feature_user1",
+        ":feature_user2",
+        ":feature_user3",
+        ":feature_user4",
+        ":feature_user5",
+        ":feature_user6",
+        ":feature_user7",
+        ":feature_user8",
+        ":feature_user9",
+        ":feature_user10"
+    )
 }
 
 dependencies {

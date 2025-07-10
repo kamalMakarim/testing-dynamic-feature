@@ -1,5 +1,0 @@
--keep class com.kamal.feature_user4.MainActivity { <init>(); }
--keep class androidx.appcompat.widget.Toolbar { <init>(android.content.Context, android.util.AttributeSet); }
-
--keep class androidx.cardview.widget.CardView { <init>(android.content.Context, android.util.AttributeSet); }
-

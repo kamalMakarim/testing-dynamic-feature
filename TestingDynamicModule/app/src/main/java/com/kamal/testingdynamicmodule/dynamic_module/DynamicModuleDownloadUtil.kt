@@ -33,7 +33,7 @@ class DynamicModuleDownloadUtil(context: Context, private val callback: DynamicD
             .addModule(moduleName)
             .build()
 
-        val listener = SplitInstallStateUpdatedListener { state -> handleInstallStates(state) }
+        val listener = SplitInstallStateUpdatedListener { state -> handleInstallStates(state, moduleName) }
         splitInstallManager.registerListener(listener)
 
         splitInstallManager.startInstall(request)
@@ -76,7 +76,7 @@ class DynamicModuleDownloadUtil(context: Context, private val callback: DynamicD
         }
     }
 
-    private fun handleInstallStates(state: SplitInstallSessionState) {
+    private fun handleInstallStates(state: SplitInstallSessionState, moduleName: String) {
         if (state.sessionId() == mySessionId) {
             when (state.status()) {
                 SplitInstallSessionStatus.DOWNLOADING -> {
@@ -89,7 +89,7 @@ class DynamicModuleDownloadUtil(context: Context, private val callback: DynamicD
 
                 SplitInstallSessionStatus.INSTALLED -> {
                     Log.d(TAG, "Dynamic Module downloaded")
-                    callback.onInstallSuccess()
+                    callback.onInstallSuccess(moduleName)
                 }
 
                 SplitInstallSessionStatus.FAILED -> {

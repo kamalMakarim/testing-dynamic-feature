@@ -1,7 +1,4 @@
-#Tue Jun 17 03:49:14 WIB 2025
+#Fri Jul 11 05:57:38 WIB 2025
 base.0=D\:\\UI\\testing-dynamic-feature\\TestingDynamicModule\\feature_user1\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.1=D\:\\UI\\testing-dynamic-feature\\TestingDynamicModule\\feature_user1\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
 path.0=0/classes.dex
-path.1=7/classes.dex
 renamed.0=classes.dex
-renamed.1=classes2.dex

@@ -1,6 +1,0 @@
-com.kamal.feature_user5.test.feature_user5-tracing-1.2.0-0 C:\Users\kamal\.gradle\caches\8.10.2\transforms\5e2ac550c9e47e8a6b8814b7602811b1\transformed\tracing-1.2.0\res
-com.kamal.feature_user5.test.feature_user5-core-1.6.1-1 C:\Users\kamal\.gradle\caches\8.10.2\transforms\e6be608336b2b57e25611360c98055be\transformed\core-1.6.1\res
-com.kamal.feature_user5.test.feature_user5-androidTest-2 D:\UI\testing-dynamic-feature\TestingDynamicModule\feature_user5\build\generated\res\resValues\androidTest\debug
-com.kamal.feature_user5.test.feature_user5-mergeDebugAndroidTestResources-3 D:\UI\testing-dynamic-feature\TestingDynamicModule\feature_user5\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
-com.kamal.feature_user5.test.feature_user5-mergeDebugAndroidTestResources-4 D:\UI\testing-dynamic-feature\TestingDynamicModule\feature_user5\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
-com.kamal.feature_user5.test.feature_user5-debugAndroidTest-5 D:\UI\testing-dynamic-feature\TestingDynamicModule\feature_user5\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

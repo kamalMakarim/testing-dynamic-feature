@@ -15,16 +15,12 @@
             <dist:on-demand />
         </dist:delivery>
 
-        <dist:fusing dist:include="false" />
+        <dist:fusing dist:include="true" />
     </dist:module>
 
     <application
         android:debuggable="true"
-        android:extractNativeLibs="false" >
-        <activity
-            android:name="com.kamal.feature_user1.MainActivity"
-            android:exported="false"
-            android:splitName="feature_user1" />
-    </application>
+        android:extractNativeLibs="false"
+        android:testOnly="true" />
 
 </manifest>

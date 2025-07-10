@@ -1,3 +1,0 @@
-com.kamal.feature_user5.test
-style WhiteBackgroundDialogTheme
-style WhiteBackgroundTheme

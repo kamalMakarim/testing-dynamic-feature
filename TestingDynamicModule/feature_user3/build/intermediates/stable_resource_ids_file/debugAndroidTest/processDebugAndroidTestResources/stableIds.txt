@@ -1,2 +1,0 @@
-com.kamal.feature_user3.test:style/WhiteBackgroundTheme = 0x7f010001
-com.kamal.feature_user3.test:style/WhiteBackgroundDialogTheme = 0x7f010000

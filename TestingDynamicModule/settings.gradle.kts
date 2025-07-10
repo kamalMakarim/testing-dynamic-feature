@@ -21,5 +21,13 @@ dependencyResolutionManagement {
 
 rootProject.name = "Testing Dynamic Module"
 include(":app")
-include(":feature_user")
-include(":feature_admin")
+include(":feature_user1")
+include(":feature_user2")
+include(":feature_user3")
+include(":feature_user4")
+include(":feature_user5")
+include(":feature_user6")
+include(":feature_user7")
+include(":feature_user8")
+include(":feature_user9")
+include(":feature_user10")
