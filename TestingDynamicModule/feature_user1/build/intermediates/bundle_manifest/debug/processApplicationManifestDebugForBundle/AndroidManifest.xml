@@ -23,6 +23,11 @@
     <application
         android:debuggable="true"
         android:extractNativeLibs="false"
-        android:testOnly="true" />
+        android:testOnly="true" >
+        <activity
+            android:name="com.kamal.feature_user1.MainActivity1"
+            android:exported="false"
+            android:splitName="feature_user1" />
+    </application>
 
 </manifest>

@@ -8,11 +8,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-
 import androidx.appcompat.app.AppCompatActivity
 import com.kamal.testingdynamicmodule.dynamic_module.DynamicDeliveryCallback
 import com.kamal.testingdynamicmodule.dynamic_module.DynamicModuleDownloadUtil
-
 
 class LoginActivity : AppCompatActivity(), DynamicDeliveryCallback {
     private lateinit var loginButton: Button
@@ -39,82 +37,80 @@ class LoginActivity : AppCompatActivity(), DynamicDeliveryCallback {
         super.onCreate(savedInstanceState)
         dynamicModuleDownloadUtil = DynamicModuleDownloadUtil(baseContext, this)
         setContentView(R.layout.activity_login)
-        this.loginButton = findViewById<Button>(R.id.login_button)
-        this.registerNow = findViewById<TextView>(R.id.create_button)
-        this.email = findViewById<EditText>(R.id.login_email)
-        this.password = findViewById<EditText>(R.id.login_password)
+
+        this.loginButton = findViewById(R.id.login_button)
+        this.registerNow = findViewById(R.id.create_button)
+        this.email = findViewById(R.id.login_email)
+        this.password = findViewById(R.id.login_password)
         this.mContext = this
 
-        loginButton.setOnClickListener(View.OnClickListener { _: View? ->
-            handleLogin()
-        })
+        loginButton.setOnClickListener { handleLogin() }
 
-        if (supportActionBar != null) {
-            supportActionBar!!.hide()
-        }
-        if (actionBar != null) {
-            actionBar!!.hide()
-        }
+        supportActionBar?.hide()
+        actionBar?.hide()
     }
 
-    protected fun handleLogin() {
-        val emailS = email.text.toString()
-        val passwordS = password.text.toString()
+    private fun handleLogin() {
+        val emailS = email.text.toString().trim()
+        val passwordS = password.text.toString().trim()
         if (emailS.isEmpty() || passwordS.isEmpty()) {
-            Toast.makeText(
-                mContext, "Field cannot be empty",
-                Toast.LENGTH_SHORT
-            ).show()
+            Toast.makeText(mContext, "Field cannot be empty", Toast.LENGTH_SHORT).show()
             return
-        }
-        else{
+        } else {
             openFeature(emailS)
         }
     }
 
     private fun openFeature(username: String) {
-        val (module, activity) = moduleMap[username] ?: run {
+        val (module, _) = moduleMap[username] ?: run {
             Toast.makeText(mContext, "No feature available for this user", Toast.LENGTH_SHORT).show()
             return
         }
+
         if (dynamicModuleDownloadUtil.isModuleDownloaded(module)) {
-            System.out.println("Module is already downloaded.\n")
-            startFeatureActivity(module)
-        }
-        else{
-            System.out.println("Downloading module $module.\n")
+            println("Module is already downloaded.\n")
+            startFeatureActivity(username)
+        } else {
+            println("Downloading module $module.\n")
             dynamicModuleDownloadUtil.downloadDynamicModule(module)
         }
     }
 
-    private fun startFeatureActivity(moduleName: String){
-        val activity = moduleMap[moduleName]?.second ?: run {
+    private fun startFeatureActivity(username: String) {
+        val (moduleName, activity) = moduleMap[username] ?: run {
             Toast.makeText(mContext, "No activity available for this user", Toast.LENGTH_SHORT).show()
             return
         }
 
-        val intent = Intent()
-        intent.setClassName(
-            "com.kamal.testingdynamicmodule",
-            "com.kamal.$moduleName.$activity"
-        )
+        val intent = Intent().apply {
+            setClassName(
+                "com.kamal.testingdynamicmodule",
+                "com.kamal.$moduleName.$activity"
+            )
+        }
         startActivity(intent)
     }
 
     override fun onDownloadCompleted() {
-        System.out.println("Module download completed.")
+        println("Module download completed.")
     }
 
     override fun onDownloading() {
-        System.out.println("Downloading...")
+        println("Downloading...")
     }
 
     override fun onInstallSuccess(moduleName: String) {
-        System.out.println( "Module install Success!\n")
-        startFeatureActivity(moduleName)
+        println("Module install Success!\n")
+
+        val username = moduleMap.entries.find { it.value.first == moduleName }?.key ?: run {
+            Toast.makeText(mContext, "Could not find user for module $moduleName", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        startFeatureActivity(username)
     }
 
     override fun onFailed(errorMessage: String) {
-        System.out.println(errorMessage)
+        println(errorMessage)
     }
 }
