@@ -26,11 +26,6 @@ class LoginActivity : AppCompatActivity(), DynamicDeliveryCallback {
         "user3" to Pair("feature_user3", "MainActivity3"),
         "user4" to Pair("feature_user4", "MainActivity4"),
         "user5" to Pair("feature_user5", "MainActivity5"),
-        "user6" to Pair("feature_user6", "MainActivity6"),
-        "user7" to Pair("feature_user7", "MainActivity7"),
-        "user8" to Pair("feature_user8", "MainActivity8"),
-        "user9" to Pair("feature_user9", "MainActivity9"),
-        "user10" to Pair("feature_user10", "MainActivity10")
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

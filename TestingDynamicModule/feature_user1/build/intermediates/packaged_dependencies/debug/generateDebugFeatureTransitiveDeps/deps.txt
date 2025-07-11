@@ -1,1 +1,0 @@
-:feature_user1::debug;Capability: group='Testing Dynamic Module', name='feature_user1'

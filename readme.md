@@ -1,8 +1,41 @@
-## Explanation about the project
+## Gambaran Projek
 
-Projek ini dibuat untuk menguji dynamic feature pada Android Studio, terdapat 5 feature dummy untuk user1 hingga user5. user login dengan email user1, user2, user3, user4, dan user5. Setiap user memiliki dynamic feature masing-masing yang dapat diinstall secara on-demand. 
+Projek ini dibuat untuk menguji dynamic feature pada Android Studio, terdapat 5 feature dummy untuk user1 hingga user5. user login dengan email user1, user2, user3, user4, dan user5. Setiap user memiliki dynamic feature masing-masing yang dapat diinstall secara on-demand. Setiap feature memiliki drawable gambar berukuran besar yang bertujuan untuk mengsimulasikan ukuran module yang besar.
 
-## How To Make A Dynamic Feature On Android Studio
+## Dynamic Feature
+Dynamic feature adalah fitur yang membuat user hanya menginstall fitur yang akan mereka butuhkan saja, sehingga dapat mengurangi ukuran APK saat pertama kali diinstall.
+![alt text](./md-image/dynamic.gif)
+
+
+## Cara Kerja Dynamic Feature
+1. Memisahkan fitur dynamic agar tidak diinstall secara default pada aplikasi (bila delivery on-demand)
+```mermaid
+mindmap
+   root((App Modules))
+      Default App Modules
+         Login((Login))
+         DynamicDownloadModule((Dynamic <br/>Module Util))
+      Dynamic Feature Modules
+         User1((User1 DF))
+         User2((User2 DF))
+         User3((User3 DF))
+         User4((User4 DF))
+```
+2. Pada saat user ingin menggunakan fitur yang ada di dynamic feature, aplikasi akan menginstall modul dynamic feature tersebut secara on-demand
+
+```mermaid
+sequenceDiagram
+   Pengguna->>App: Ingin menggunakan fitur dynamic feature
+   App->>SplitInstallManager: Meminta status instalasi modul dynamic feature
+   SplitInstallManager-->>App: Modul belum terinstall
+   App->>SplitInstallManager: Meminta download dan instalasi modul dynamic feature
+   SplitInstallManager->>Google Play: Mengunduh modul dynamic feature dari Google Play
+   Google Play-->>SplitInstallManager: Mengirimkan modul dynamic feature ke aplikasi
+   SplitInstallManager-->>App: Modul dynamic feature berhasil diinstall
+   App->>Pengguna: Memberitahu bahwa fitur sudah siap digunakan
+```
+
+## Cara Membuat Dynamic Feature 
 
 1. Create a new module
    ![alt text](./md-image/createModule.png)
@@ -16,7 +49,7 @@ Projek ini dibuat untuk menguji dynamic feature pada Android Studio, terdapat 5 
 4. Gunakan SplitInstallManager untuk menginstall modul dynamic feature, dapat dilihat di bagian berikut
    [Contoh Penggunaan SplitInstallManager](https://github.com/kamalMakarim/testing-dynamic-feature/blob/main/TestingDynamicModule/app/src/main/java/com/kamal/testingdynamicmodule/dynamic_module/DynamicModuleDownloadUtil.kt)
 
-## Things To Look Out For
+## Hal-hal yang perlu diperhatikan
 
 1. Ketika menggunakan dynamic feature, fitur dynamic tidak bisa di import langsung di app, perlu menggunakan reflection
 2. Jika terdapat asset yang diakses oleh dua atau lebih dynamic feature, disarankan untuk meletakkan asset tersebut di base module untuk menghindari duplikasi asset
@@ -45,7 +78,7 @@ java -jar bundletool-all-1.18.1.jar build-apks --bundle=app/build/outputs/bundle
 
 ### No Dynamic Feature
 
-1. memasukan/menghilakan module dengan menghapus module dari build.gradle dari app nya sendiri
+1. memasukan/menghilakan module dengan menghapus module dari build.gradle milik app nya sendiri
 
 ```
     implementation(project(":user1"))
